@@ -61,6 +61,14 @@
             "command": "$HOME/.config/iterm2/cc-status"
           }
         ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cat \"$HOME/.claude/machine-role.md\" 2>/dev/null || true"
+          }
+        ]
       }
     ],
     "Stop": [
@@ -144,7 +152,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "node $HOME/.claude/plugins/claude-hud/statusline.mjs"
+    "command": "$HOME/.claude/statusline.sh"
   },
   "enabledPlugins": {
     "chrome-devtools-mcp@claude-plugins-official": true,

@@ -12,6 +12,7 @@ and the authored `skills/`, `commands/`, and `agents/`. Everything else in `~/.c
 | `settings.json` | Permissions, hooks, status line, enabled plugins, marketplaces, prefs |
 | `commands/` | Custom slash commands |
 | `agents/` | Custom sub-agent definitions |
+| `statusline.sh` | Status line: optional machine-role badge + claude-hud (auto-located) |
 
 `skills/` is intentionally **not** tracked — it only holds auto-synced built-in skills
 (they regenerate on their own) and local symlinks. To version an authored skill later,
@@ -47,6 +48,12 @@ or the hooks/status line will error (harmlessly):
 - **`node` on `PATH`** — required for the claude-hud status line.
 - **Plugins** — `plugins/` is git-ignored (hundreds of MB). Claude Code re-installs them on
   startup from `enabledPlugins` + `extraKnownMarketplaces` in `settings.json`. No manual step.
+
+## Machine role (e.g. PROD)
+
+To mark a machine, create `~/.claude/machine-role.md` (git-ignored, machine-local). Line 1 is
+`Role: <LABEL>` (shown as a red badge in the status line); the whole file is injected into every
+session's context by a `SessionStart` hook. Machines without the file show no badge and get no context.
 
 ## Push changes
 
