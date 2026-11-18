@@ -1,0 +1,15 @@
+# Ignore everything, then allowlist only the authored config.
+# skills/ is intentionally NOT tracked (only auto-synced built-ins + a local
+# symlink live there). To track an authored skill later, add: !skills/<name>/**
+*
+!.gitignore
+!README.md
+!CLAUDE.md
+!settings.json
+!commands/
+!commands/**
+!agents/
+!agents/**
+
+# .DS_Store: macOS cruft, anywhere.
+.DS_Store
