@@ -119,3 +119,14 @@ All project docs live under `docs/`, one file per item, named `<slug>-<yyyymmdd>
 Default to the simplest solution that fully works. The ladder in order: does it need to exist → stdlib → native platform feature → already-installed dep → one line → minimum code. Stop at the first rung that holds.
 
 **i18n is never a simplification target.** Any component with bilingual copy, locale-conditional layout, or CJK typography must be fully spec'd for both locales before the first line is written. "Minimum code" on an i18n path creates rework.
+
+## Frontend UI design
+
+Applies to all front-end/UI work, on top of the general workflow. The Orchestrator owns these — they can't be delegated, because a sub-agent can't interview the Human (no live dialogue, no `AskUserQuestion`). Delegate only the codebase discovery that informs them (to `Explore`/`Plan`) when reads get heavy.
+
+- **Requirement gathering (extends step 0).** Before planning a UI feature, the Orchestrator confirms three things with the Human and records them as the preamble of the plan doc (next to decisions/assumptions). Make reasonable assumptions and state them; only ask when the answer changes the build:
+  - **Motivation** — why the Human wants this change.
+  - **Goal** — measurable success criteria. If fuzzy, propose 2-3 concrete options to pick from rather than leaving it grey.
+  - **Usability** — how the end user actually intends to use it.
+- **Design by selection.** When a UI element has no clear Human agreement on look/layout, don't guess — present 2-4 distinct mockups and let the Human pick. Use `AskUserQuestion` with per-option `preview` (ASCII mockups) as the mechanism; no dedicated skill.
+- **Visual validation.** For the human-in-the-loop visual check at step 5's exit, prefer claude-in-chrome over Playwright — the Human and AI see the same live page. Playwright/automated UI tests still own headless CI regression.
