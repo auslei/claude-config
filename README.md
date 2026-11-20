@@ -4,6 +4,20 @@ Version-controlled copy of my global `~/.claude` config: `CLAUDE.md`, `settings.
 and the authored `skills/`, `commands/`, and `agents/`. Everything else in `~/.claude`
 (session history, plugins, caches, credentials) is machine-local and git-ignored.
 
+## Why this exists
+
+Running Claude Code across ~15 repos taught me the model is rarely the bottleneck — how you
+frame the work is. This config encodes three habits that make the difference:
+
+- **Objectives over file lists.** Define the motivation, a measurable goal, and how the user
+  actually uses it. Nail the *what* and *why*; let the model find the files.
+- **Context is the budget.** Keep the main loop light — delegate file-heavy work to sub-agents
+  that spend their own context and report back a summary.
+- **Loop on the objective.** "Done" means tests green *and* review resolved *and* the requirement
+  met — loop until it is. A red state never leaves.
+
+Public in case it's useful. MIT — take what helps.
+
 ## What's tracked
 
 | Path | What it is |
